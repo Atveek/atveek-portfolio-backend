@@ -52,12 +52,12 @@ async function createCourse(req) {
   }
 }
 
-app.get("/", async (req, res) => {
+app.get("/review", async (req, res) => {
   const result = await reviews.find();
   res.send(result);
 });
 
-app.post("/", async (req, res) => {
+app.post("/review", async (req, res) => {
   const { error } = validatereview(req.body);
   if (error) {
     return res.status(422).json(error.details[0].message);
